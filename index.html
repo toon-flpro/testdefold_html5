@@ -10,7 +10,7 @@
 
 <body>
     <h1>Welcome to the Telegram Web App SS</h1>
-    <button onclick="sendMessageToTelegram()">Open Invoice!</button>
+    <button onclick="sendMessageToTelegram()">Open Invoice production env!</button>
 
     <script>
         // เรียกใช้งาน Telegram Web App API
@@ -19,8 +19,9 @@
         function sendMessageToTelegram() {
             //Telegram.WebApp.sendData("Hello from Web App!");
             Telegram.WebApp.openInvoice({
-                url: "https://t.me/$jex0DamqKEoDAAAA2cjLrWLN4mk"
+                url: "https://t.me/$SoAObeohMVaFAQAAagF345L12JQ"
             });
+            
             alert('Open Invoice!');
         }
 
