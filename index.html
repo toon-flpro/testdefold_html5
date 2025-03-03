@@ -10,14 +10,18 @@
 
 <body>
     <h1>Welcome to the Telegram Web App SS</h1>
-    <button onclick="sendMessageToTelegram()">Open Invoice</button>
+    <button onclick="sendMessageToTelegram()">Open Invoice!</button>
 
     <script>
         // เรียกใช้งาน Telegram Web App API
-        Telegram.WebApp.init();
+        Telegram.WebApp.ready();
 
         function sendMessageToTelegram() {
-            Telegram.WebApp.sendData("Hello from Web App!");
+            //Telegram.WebApp.sendData("Hello from Web App!");
+            Telegram.WebApp.openInvoice({
+                url: "https://t.me/$jex0DamqKEoDAAAA2cjLrWLN4mk"
+            });
+            alert('Open Invoice!');
         }
 
         // รับข้อมูลจาก Telegram
@@ -44,9 +48,7 @@
                 photo_height: 100
             });*/
 
-            Telegram.WebApp.openInvoice({
-                url: "https://t.me/$jex0DamqKEoDAAAA2cjLrWLN4mk"
-            });
+           
             
             alert('Invoice clicked!');
         });
