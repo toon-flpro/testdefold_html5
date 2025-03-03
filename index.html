@@ -3,40 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Telegram Invoice</title>
+    <title>Telegram Web App</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <button id="sendInvoiceButton">Send Invoice</button>
+    <h1>Welcome to the Telegram Web App</h1>
+    <button onclick="sendMessageToTelegram()">Send Message</button>
 
     <script>
-        const sendInvoiceButton = document.getElementById('sendInvoiceButton');
+        // เรียกใช้งาน Telegram Web App API
+        Telegram.WebApp.init();
 
-        sendInvoiceButton.addEventListener('click', () => {
-            // เริ่มต้น Telegram Web App
-            Telegram.WebApp.init();
+        function sendMessageToTelegram() {
+            Telegram.WebApp.sendData("Hello from Web App!");
+        }
 
-            // ส่งคำขอให้ Telegram ส่ง invoice
-            Telegram.WebApp.sendInvoice({
-                chat_id: 'your_chat_id',
-                title: 'Test Product',
-                description: 'This is a test product for purchase.',
-                payload: 'test_payload',
-                provider_token: 'your_provider_token',
-                currency: 'USD',
-                prices: [
-                    {
-                        label: 'Test Product',
-                        amount: 10000 // 100.00 USD in smallest currency unit (cent)
-                    }
-                ],
-                start_parameter: 'test',
-                invoice_url: 'https://example.com/your_invoice_url',
-                photo_url: 'https://example.com/your_product_image.jpg',
-                photo_size: 100,
-                photo_width: 100,
-                photo_height: 100
-            });
+        // รับข้อมูลจาก Telegram
+        Telegram.WebApp.onEvent('mainButtonClicked', function() {
+            alert('Main button clicked!');
         });
     </script>
 </body>
