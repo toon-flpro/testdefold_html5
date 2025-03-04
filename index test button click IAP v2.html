@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+    <h1>Welcome to the Telegram Web App SS</h1>
+    <button onclick="sendMessageToTelegram()">Open Invoice production env!</button>
+
+    <script>
+        // เรียกใช้งาน Telegram Web App API
+        Telegram.WebApp.ready();
+
+        function sendMessageToTelegram() {
+            //Telegram.WebApp.sendData("Hello from Web App!");
+            /*Telegram.WebApp.openInvoice({
+                url: "https://t.me/$SoAObeohMVaFAQAAagF345L12JQ"
+            });*/
+            
+            alert('Open Invoice!');
+        }
+
+        // รับข้อมูลจาก Telegram
+        Telegram.WebApp.onEvent('mainButtonClicked', function () {
+            alert('Main button clicked!');
+            /*Telegram.WebApp.sendInvoice({
+                chat_id: '5000117391',
+                title: 'Test Product',
+                description: 'This is a test product for purchase.',
+                payload: 'test_payload',
+                provider_token: '',
+                currency: 'XTR',
+                prices: [
+                    {
+                        label: 'Test Product',
+                        amount: 10000 // 100.00 USD in smallest currency unit (cent)
+                    }
+                ],
+                start_parameter: 'test',
+                invoice_url: 'https://example.com/your_invoice_url',
+                photo_url: 'https://example.com/your_product_image.jpg',
+                photo_size: 100,
+                photo_width: 100,
+                photo_height: 100
+            });*/
+
+           
+            
+            alert('Invoice clicked!');
+        });
+        /*Telegram.WebApp.onEvent('invoiceClosed', (result) => {
+            if (result.status === 'paid') {
+                alert("Payment successful! 🎉");
+            } else {
+                alert("Payment failed or cancelled.");
+            }
+        });*/
+    </script>
+
+    <div class="payment-container">
+        <h1>ชำระเงินเพื่อดำเนินการต่อ</h1>
+        <p>คลิกที่ลิงก์ด้านล่างเพื่อดำเนินการชำระเงินและยืนยันคำสั่งซื้อของคุณ</p>
+        <a href="https://t.me/$B1NkTuohMVZXAQAAytQPAwk_CE4" class="invoice-link" target="_blank">ไปที่หน้าชำระเงิน</a>
+    </div>
+</body>
+
+</html>
