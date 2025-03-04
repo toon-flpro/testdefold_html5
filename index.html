@@ -7,7 +7,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h1>ซื้อสินค้า v3</h1>
+    <h1>ซื้อสินค้า v4</h1>
     <button id="buyNow">ซื้อเลย</button>
 
     <script>
@@ -15,7 +15,7 @@
         tg.ready();
 
         document.getElementById("buyNow").onclick = () => {
-            fetch("https://api.telegram.org/bot5000569861:AAHWu2mz-hM8fsFFInXBGMT6E4F_S4nueKA/createInvoiceLink", {
+            fetch("https://api.telegram.org/bot5000569861:AAHWu2mz-hM8fsFFInXBGMT6E4F_S4nueKA/test/createInvoiceLink", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
