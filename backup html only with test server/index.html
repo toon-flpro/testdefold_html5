@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram WebApp Invoice</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <h1>Telegram WebApp Star Invoice</h1>
+    <button id="buyNow">Click to buy via Star</button>
+
+    <script>
+        const tg = Telegram.WebApp;
+        tg.ready();
+
+        document.getElementById("buyNow").onclick = () => {
+            fetch("https://api.telegram.org/bot5000569861:AAHWu2mz-hM8fsFFInXBGMT6E4F_S4nueKA/test/createInvoiceLink", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: "สินค้า test env",
+                    description: "รายละเอียดสินค้า A",
+                    payload: "invoice_payload",
+                    provider_token: "",
+                    currency: "XTR",
+                    prices: [
+                        { label: "สินค้า A", amount: 5 }
+                    ],
+                    start_parameter: "start",
+                }),
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.ok) {
+                    tg.openInvoice(data.result); // เปิด Invoice ใน WebApp ทันที!
+                } else {
+                    alert("สร้าง Invoice ไม่สำเร็จ: " + data.description);
+                }
+            })
+            .catch((error) => console.error("Error:", error));
+        };
+    </script>
+</body>
+</html>
